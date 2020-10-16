@@ -1,0 +1,32 @@
+@extends('layouts.app')
+@section('custom_styles')
+    @include('bootstrap-select.style')
+    @include('bootstrap-datepicker.style')
+    @include('datatables.style')
+@endsection
+@section('content')
+    <div class="container-fluid">
+        <h4>ORDEN DE SECUENCIA</h4>
+        <hr>
+        <div class="clearfix"></div>
+        <div class="row justify-content-center">
+            <div class="col-xs-12 col-sm-12 col-md-11 col-lg-11">
+                    @include('customers.sequence.sequenceform')
+                    <hr>
+                    <button type="submit" onclick="submitForm()" class="btn btn-success">GUARDAR</button>
+                    <a href="{{ route('customers.index') }}" class="btn btn-danger">CANCELAR</a>
+                    <a id="linkPrint" target="blank" href="#"><button type="button" class="btn btn-warning">IMPRIMIR</button></a>
+                </form>
+            </div>
+        </div>        
+    </div>
+    @include('customers.sequence.sequencesave')
+@endsection
+@section('custom_scripts')
+    @include('bootstrap-select.script')
+    @include('bootstrap-datepicker.script')
+    @include('commons.autonumeric')
+    @include('datatables.script')
+    @include('customers.sequence.jssequence')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>  
+@endsection
